@@ -1,5 +1,6 @@
 const db = require("../models");
  const Tutorial =  db.tutorials;
+
  const Op = db.Sequelize.Op;
 
  exports.create = (req, res) => {
@@ -104,7 +105,9 @@ const db = require("../models");
                  mesage:`Cannot delete Tutorial with id=${id}.Maybe Tutorial was not found!`
              });
          }
-     })
+         
+        })
+        
      .catch(err => {
          res.status(500).send({
              mesage:"Could not delete Tutorial with id"+id

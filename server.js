@@ -1,8 +1,9 @@
 const express =require("express");
 // const bodyParser =require("body-parser");
  const cors =require("cors");
- const db = require("./app/models");
-
+ const db = require("./app/models/tutorial.model");
+//const multer =require ('multer');
+const path = require("path");
 const app = express();
 
  var corsOptions = {
@@ -11,6 +12,7 @@ const app = express();
 
 
  //app.use();
+ 
  app.use(cors(corsOptions));
  app.use(express.json());
  app.use(express.urlencoded({ extended: true }));
@@ -21,10 +23,11 @@ app.get("/", (req,res) => {
     res.json({message : "welcome to  dev story."});
 });
 
-// db.sequelize.sync({ force: true }).then(() =>{
+// /db.sequelize.sync({ force: true }).then(() =>{
 //     console.log("Drop and re-sync db.");
 // });
-const routes=require("./app/routes/tutorial.routes")(app);
+//const routes=
+require("./app/routes/tutorial.routes")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen (PORT, () => {
